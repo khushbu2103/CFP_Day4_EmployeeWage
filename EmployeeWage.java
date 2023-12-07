@@ -10,11 +10,14 @@ public class EmployeeWage {
         final int PART_TIME = 2;
         final int WAGE_PER_HRS = 20;
         final int MAX_WORKING_DAYS = 20;
+        final int MAX_WORKING_HRS = 100;
         int empWage = 0;
         int empHrs = 0;
         int totalWage = 0;
+        int day = 1;
+        int totalHrs = 0;
         Random random = new Random();
-        for (int i = 0; i<MAX_WORKING_DAYS; i++)
+        while(day<=MAX_WORKING_DAYS && totalHrs<=MAX_WORKING_HRS)
         {
             int randomNumber = random.nextInt(3);
             switch (randomNumber)
@@ -33,10 +36,12 @@ public class EmployeeWage {
             }
             empWage = empHrs * WAGE_PER_HRS;
             totalWage = totalWage + empWage;
-            System.out.println("Employee daily wage : " + empWage);
+            totalHrs += empHrs;
+            day++;
+            System.out.println("Employee wage per day " + day + " : " + empWage);
         }
 
 
-        System.out.println("TotalWage for" + MAX_WORKING_DAYS + " days is: " + totalWage);
+        System.out.println("TotalWage for " + (day-1) + " is : " + totalWage + " and total hrs is : " + totalHrs);
     }
 }
