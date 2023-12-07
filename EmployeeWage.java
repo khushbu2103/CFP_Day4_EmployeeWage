@@ -13,19 +13,21 @@ public class EmployeeWage {
         int empHrs = 0;
         Random random = new Random();
         int randomNumber = random.nextInt(3);
-        if(FULL_TIME == randomNumber)
-        {
-            System.out.println("Full time employee is present");
-            empHrs = 8;
-        } else if (PART_TIME == randomNumber)
-        {
-            System.out.println("Part time employee is present");
-            empHrs = 4;
-        } else
-        {
-            System.out.println("Employee is absent");
-        }
 
+        switch (randomNumber)
+        {
+            case FULL_TIME:
+                System.out.println("Full time employee is present");
+                empHrs = 8;
+                break;
+            case PART_TIME:
+                System.out.println("Part time employee is present");
+                empHrs = 4;
+                break;
+            default:
+                System.out.println("Employee is absent");
+                break;
+        }
         empWage = empHrs * WAGE_PER_HRS;
         System.out.println("Employee daily wage : " + empWage);
     }
